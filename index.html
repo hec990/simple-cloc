@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="./style.css" rel="stylesheet">
+  <title>简易时钟-hec</title>
+</head>
+<body>
+  <div class="clock">
+    <div class="hour">
+      <div class="hr" id='hr'></div>
+    </div>
+    <div class="min">
+      <div class="mn" id='mn'></div>
+    </div>
+    <div class="sec">
+      <div class="sc" id='sc'></div>
+    </div>
+  </div>
+</body>
+<script>
+  // 获取元素
+  const deg = 6
+  const hr = document.querySelector('#hr')
+  const mn = document.querySelector('#mn')
+  const sc = document.querySelector('#sc')
+  
+  // 开启时钟定时
+  setInterval(() => {
+    let day = new Date()
+    let hh = day.getHours() * 30 // 时h  一圈360 度，有12格，每格 360/12 = 30
+    let mm = day.getMinutes() * deg // 分m  一圈360 度， 有60格，每格 6 度
+    let ss = day.getSeconds() * deg // 秒s  一圈360 度， 有60格，每格 6 度
+    hr.style.transform = `rotateZ(${(hh) + (mm/12)}deg)` // 时的刻度等于时针走过的度数加上分针的偏移量
+    mn.style.transform = `rotate(${mm}deg)`
+    sc.style.transform = `rotate(${ss}deg)`
+  })
+
+</script>
+</html>
+
