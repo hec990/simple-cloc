@@ -3,8 +3,6 @@
 简易闹钟实现
 
 <h1>html文件</h1>
-<hr/>
-<div>
   <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +45,6 @@
 
 </script>
 </html>
-</div>
 
 
 
